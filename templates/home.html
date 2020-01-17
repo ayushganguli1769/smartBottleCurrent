@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+    {% block body %}
+    <div id="final_data">
+        hello
+     </div>
+     <table class="table table-striped table-hover">
+        <tr>
+          <th>Patient Name</th>
+          <th>Device ID</th>
+          <th>Ward</th>
+          <th>Field 1</th>
+          <th>Field 2</th>
+          <th>Field 3</th>
+
+        </tr>
+        {% for bottle in all_bottles %}
+          
+        <tr>
+          <td>name </td>
+          <td>{{bottle.channel_id}}</td>
+          <td >ward id</td>
+          <td class="field" id="field1{{forloop.counter}}">field1{{forloop.counter}}</td>
+          <td class="field" id="field2{{forloop.counter}}">field2{{forloop.counter}}</td>
+          <td class="field" id="field3{{forloop.counter}}">field3{{forloop.counter}}</td>
+
+        </tr>
+        {% endfor %}
+      </table>
+     <script>
+    window.onload = initAll
+function initAll()
+{
+    showData();
+    //show = document.getElementById("data")
+    //show.onclick = showData
+    var timer;
+    function showData()
+    {
+        var timer = setTimeout(showData, 2000);
+        var url = "/iot/all_parameters/"
+        var req = new XMLHttpRequest();
+        req.onreadystatechange = function() {
+      a = document.getElementById("final_data")
+            if (this.readyState == 4 && this.status == 200) {
+                var data = eval(req.responseText);
+                var a = document.getElementById("final_data");
+                a.innerHTML = data;// find way to handle failure of request
+                //alert(eval(data));
+                for(var i = 0; i < data.length; i++)
+                {
+                    document.getElementById("field1" + (i+1)).innerHTML = data[i].field1;
+                    document.getElementById("field2" + (i+1)).innerHTML = data[i].field2;
+                    document.getElementById("field3" + (i+1)).innerHTML = data[i].field3;
+                }
+                
+            }
+        };
+        req.open("GET", url, true);
+        req.send();
+    }
+    showData();
+    /*test = document.getElementById("test")
+    test.innerHTML = "sucesss"*/
+    
+}
+</script>
+    {% endblock body %}
+    
+
