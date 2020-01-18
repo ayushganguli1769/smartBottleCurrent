@@ -17,9 +17,9 @@
         {% for bottle in all_bottles %}
           
         <tr>
-          <td>name </td>
+          <td>{% if bottle.person %} {{bottle.person.name}} {% else %} none {% endif %}</td>
           <td>{{bottle.channel_id}}</td>
-          <td >ward id</td>
+          <td >{% if bottle.person %} {{bottle.person.ward_id}} {% else %} none {% endif %}</td>
           <td class="field" id="field1{{forloop.counter}}">field1{{forloop.counter}}</td>
           <td class="field" id="field2{{forloop.counter}}">field2{{forloop.counter}}</td>
           <td class="field" id="field3{{forloop.counter}}">field3{{forloop.counter}}</td>

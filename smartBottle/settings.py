@@ -78,7 +78,7 @@ WSGI_APPLICATION = 'smartBottle.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'ayush',
+        'NAME': 'ayush1',
         'USER' : 'postgres',
         'PASSWORD': '1234',
         'HOST' : 'localhost',
