@@ -2,7 +2,6 @@
 <!--random stuff-->
     {% block body %}
     <div id="final_data">
-        hello
      </div>
      <table class="table table-striped table-hover">
         <tr>
@@ -17,7 +16,7 @@
         {% for bottle in all_bottles %}
           
         <tr>
-          <td>{% if bottle.person %} {{bottle.person.name}} {% else %} none {% endif %}</td>
+          <td>{% if bottle.person %} <a href="/iot/person/{{bottle.person.id}}/">{{bottle.person.name}} </a>{% else %} none {% endif %}</td>
           <td>{{bottle.channel_id}}</td>
           <td >{% if bottle.person %} {{bottle.person.ward_id}} {% else %} none {% endif %}</td>
           <td class="field" id="field1{{forloop.counter}}">field1{{forloop.counter}}</td>
@@ -45,7 +44,6 @@ function initAll()
             if (this.readyState == 4 && this.status == 200) {
                 var data = eval(req.responseText);
                 var a = document.getElementById("final_data");
-                a.innerHTML = data;// find way to handle failure of request
                 //alert(eval(data));
                 for(var i = 0; i < data.length; i++)
                 {

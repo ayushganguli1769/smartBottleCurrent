@@ -70,8 +70,34 @@
     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
     </div>
     <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-      <form action=""></form>
+      <!--form start-->
+      <div class="col-lg-8 mx-auto">
+      <div class="form-group">
+        <BR></BR>
+        <label for="prescription"><h1><span class="badge badge-primary">ADD PRESCRIPTION</span></h1></label>
+        <input type="email" class="form-control" id="prescription" aria-describedby="emailHelp" placeholder="Enter email">
+      </div>
+      <div class="row">
+        <div class="form-group col-md-3 p-2">
+          <input type="text" class="form-control" id="year" placeholder="Year">
+        </div> 
+        <div class="form-group col-md-2 p-2">
+          <input type="text" class="form-control" id="month" placeholder="Month">
+        </div> 
+        <div class="form-group col-md-2 p-2">
+          <input type="text" class="form-control" id="day" placeholder="Day">
+        </div> 
+        <div class="form-group col-md-2 p-2">
+          <input type="text" class="form-control" id="hour" placeholder="Hour">
+        </div> 
+        <div class="form-group col-md-2 p-2">
+          <input type="text" class="form-control" id="minute" placeholder="Minutes">
+        </div> 
+        <button class="btn btn-success col-md-5 mx-auto" onclick="addTask()">ADD</button>
+      </div>
+      </div>
     </div>
+    <!--new div. Be careful with div. Screwed it once already-->
     <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit possimus corrupti sunt dicta, minima quo. Officiis facere eos vitae nisi eius, hic at nemo cum quo dignissimos consequuntur, cupiditate dolorum.
     </div>
@@ -83,6 +109,61 @@
  
 </body>
 <script>
+ function addTask()
+  {
+    prescription = document.getElementById("prescription").value;
+    year = parseInt(document.getElementById("year").value);
+    month = parseInt(document.getElementById("month").value);
+    day = parseInt(document.getElementById("day").value);
+    hour = parseInt(document.getElementById("hour").value);
+    minute = parseInt(document.getElementById("minute").value);
+    if (month > 12 || month < 1)
+    {
+      alert("Wrong month input");
+      return false;
+    }
+    else if ((month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12 ) && day > 31 )
+    {
+      alert("wrong day input");
+      return false;
+    }
+    else if(month ==2 && day > 29)
+    {
+      alert("wrong day input");
+      return false;
+    }
+    else if((month == 4 || month == 6 || month == 9 ||month == 11) && day > 30)
+    {
+      alert("wrong day input");
+      return false;
+    }
+    else if(day < 1)
+    {
+      alert("wrong day input");
+      return false;
+    }
+    else if(hour > 24 || hour < 0)
+    {
+      alert("wrong hour input");
+      return false;
+    }
+    else if (minute > 60 || minute < 0)
+    {
+      alert("wrong minutes input");
+      return false;
+    }
+    //alert(parseInt(year))
+    url = "/iot/person/task/add/{{person.id}}?year=" + year + "&month=" + month + "&day=" + day + "&hour="+ hour +"&minute="+ minute + "&prescription="+ prescription;
+    var req = new XMLHttpRequest();
+  req.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      alert("Added")
+    }
+ 
+  };
+  req.open("GET", url, true);
+  req.send();
+  }
   function showAllPrescription()
      {
        person_id = document.getElementById("person_id")

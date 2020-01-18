@@ -1,9 +1,12 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from . models import Parameter, Bottle, Person,Task
 from . models import ParameterSerializer, TaskSerializer
 from django.http import HttpResponse
 from rest_framework.response import Response
 import json
+from . forms import taskForm
+import datetime
+import pytz
 
 
 def allParameters(request): #for ajax calls
@@ -35,4 +38,18 @@ def task(request,person_id):
     print(all_task_list)
     #return HttpResponse(json.dumps(ser.data))
     return HttpResponse(json.dumps(all_task_list))
+def addTask(request,person_id):
+    person = Person.objects.get(id = person_id)
+    year = int(request.GET['year'])
+    month = int(request.GET['month'])
+    day = int(request.GET['day'])
+    hour = int(request.GET['hour'])
+    minute = int(request.GET['minute'])
+    prescription = request.GET['prescription']
+    timezone =  pytz.timezone("Asia/Calcutta")
+    end = datetime.datetime(year,month,day,hour,minute, tzinfo = timezone)
+    task = Task(person = person,prescription = prescription, end = end)
+    task.save()
+    return HttpResponse("saved")
+
 

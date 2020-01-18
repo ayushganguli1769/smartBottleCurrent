@@ -21,6 +21,7 @@ urlpatterns = [
     path('test',views.test),
     re_path(r'person/(?P<person_id>[0-9]+)/',views.todolist, name= "todolist"),
     re_path(r'person/task/(?P<person_id>[0-9]+)/', views.task, name= "task"),
-    #re_path(r'iot/prescription/(?P<person_id>[0-9]+)/', views.prescription, name= "task"),
+    re_path(r'person/task/add/(?P<person_id>[0-9]+)', views.addTask, name= "addTask"),
+    #re_path(r'prescription/(?P<person_id>[0-9]+)/', views.prescription, name= "task"),
 
 ]
