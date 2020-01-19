@@ -1,4 +1,10 @@
 {% extends 'base.html' %}
+{% block title %}
+  HOME
+{% endblock title %}
+{% block page_title %}
+  All Patients
+{% endblock page_title %}
 <!--random stuff-->
     {% block body %}
     <div id="final_data">
@@ -50,6 +56,10 @@ function initAll()
                     document.getElementById("field1" + (i+1)).innerHTML = data[i].field1;
                     document.getElementById("field2" + (i+1)).innerHTML = data[i].field2;
                     document.getElementById("field3" + (i+1)).innerHTML = data[i].field3;
+                    if (parseFloat(data[i].field1) > 1334.0)
+                    {
+                      window.location.href = "/iot/bottle/message/1/bottle_complete/";
+                    }
                 }
                 
             }

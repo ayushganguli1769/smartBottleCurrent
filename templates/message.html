@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block page_title %}
+  Messages
+{% endblock page_title %}
+{% block title %}
+  Message
+{% endblock title %}
+{% block body %}
+<div class="alert alert-danger mx-auto">
+    <strong>{{message}}</strong> 
+  </div>
+  <script>
+  window.onload = initAll;
+  function initAll()
+  {
+      window.open("/media/alarm.mp3/");
+  }
+  </script>
+{% endblock body %}

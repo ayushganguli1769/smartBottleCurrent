@@ -22,6 +22,7 @@ urlpatterns = [
     re_path(r'person/(?P<person_id>[0-9]+)/',views.todolist, name= "todolist"),
     re_path(r'person/task/(?P<person_id>[0-9]+)/', views.task, name= "task"),
     re_path(r'person/task/add/(?P<person_id>[0-9]+)', views.addTask, name= "addTask"),
+    re_path(r'bottle/message/(?P<bottle_id>[0-9]+)/(?P<string>[\w\-]+)/$',views.bottleMessage, name= "bottleMessage"),#can take person todo list task also
     #re_path(r'prescription/(?P<person_id>[0-9]+)/', views.prescription, name= "task"),
 
 ]

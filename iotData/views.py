@@ -51,5 +51,13 @@ def addTask(request,person_id):
     task = Task(person = person,prescription = prescription, end = end)
     task.save()
     return HttpResponse("saved")
+def bottleMessage(request,bottle_id,string):
+    bottle = Bottle.objects.get(id = bottle_id)
+    message = ""
+    if string == "bottle_complete":
+        message += bottle.person.name + "'s drip has been complete. He is being given drip through the bottle with id" +bottle_id
+    elif string == "bottle_warning":
+        message += bottle.person.name + "'s drip is approaching completion. He is being given drip through the bottle with id" +bottle_id
+    return render(request,'message.html',{'message':message})
 
 
