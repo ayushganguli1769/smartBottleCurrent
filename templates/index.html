@@ -3,7 +3,7 @@
 <html lang="en" class=" js no-touch">
 {% load static %}
 <head>
-    <title>Tempo | HTML5 Responsive Bootstrap Template</title>
+    <title>Home</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{% static "rohan/css/bootstrap.min.css" %}">
@@ -48,12 +48,13 @@
             <div class="jumbotron">
                 <h1 class="small">Welcome To <span class="bold">Learning<span class="text-danger bold ">.Dev</span></span></h1>
                 <p class="big bold text-left">Universal technology,not medical technology,<br> <span class="text-center text-danger bold">is the foundation of caring health sysytem</span></p>
-                <form method="post" action="/Login">
+                <form method="GET" action="/iot/home/">
                     <br />
                     <br />
                     <button class="btn btn-danger px-5 py-3 mt-3 center-block ">Get Strated!</button>
                     <input type="hidden" name="id" value="3" />
-                <input name="__RequestVerificationToken" type="hidden" value="CfDJ8FgNjca0ywpLlAW9kUt0uVULaovdvXSYTRg0ClneqedOv7_8OFjGKZKjrZD20qJfQnOC2lHRc3rwpqY-FnKiAir11kgjCLFWzi6Pvl9tY8K4uFVoPf8nbvKjCdvitGjlnkzn1hnqeIp4oOyg_SFhRVo" /></form>
+                <input name="__RequestVerificationToken" type="hidden" value="CfDJ8FgNjca0ywpLlAW9kUt0uVULaovdvXSYTRg0ClneqedOv7_8OFjGKZKjrZD20qJfQnOC2lHRc3rwpqY-FnKiAir11kgjCLFWzi6Pvl9tY8K4uFVoPf8nbvKjCdvitGjlnkzn1hnqeIp4oOyg_SFhRVo" />
+            </form>
             </div>
         </div>
     </div>
@@ -91,7 +92,7 @@
         <div class="container">
             <div style="visibility: visible; animation-name: zoomIn;" class="col-md-12 text-center wow zoomIn">
                 <div class="footer_copyright">
-                    <p> © Copyright, All Rights Reserved.</p>
+                    <p> © Copyright,Learning.Dev</p>
                     <div class="credits">
                         <!--
                           All the links in the footer should remain intact.
@@ -99,7 +100,6 @@
                           Licensing information: https://bootstrapmade.com/license/
                           Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Tempo
                         -->
-                        Designed by <a href="https://bootstrapmade.com/">BootstrapMade.com</a>
                     </div>
                 </div>
             </div>
