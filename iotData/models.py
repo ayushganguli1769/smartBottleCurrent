@@ -8,7 +8,7 @@ class Person(models.Model):#person is actually patient
 class Bottle(models.Model):
     person = models.OneToOneField(Person,on_delete = models.PROTECT, null = True, blank = True)
     channel_id = models.IntegerField()
-    threshold = models.IntegerField(null= True)
+    threshold = models.FloatField(null= True)
     is_active = models.BooleanField(default= False)
     def __str__(self):
         return "Bottle " + str(self.channel_id)

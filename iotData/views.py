@@ -22,7 +22,8 @@ def allParameters(request): #for ajax calls
 def home(request):
     #all_parameter = Parameter.objects.all()
     all_bottles = Bottle.objects.all()# filter by active
-    return render(request,'home.html',{'all_bottles':all_bottles})
+    bottle1 = Bottle.objects.get(id=1)
+    return render(request,'home.html',{'all_bottles':all_bottles,'bottle1':bottle1})
 def todolist(request,person_id):
     person = Person.objects.get(id = person_id)
     return render(request,'person.html', {'person': person})
@@ -59,5 +60,9 @@ def bottleMessage(request,bottle_id,string):
     elif string == "bottle_warning":
         message += bottle.person.name + "'s drip is approaching completion. He is being given drip through the bottle with id" +bottle_id
     return render(request,'message.html',{'message':message})
-
+def live(request, person_id):
+    person = Person.objects.get(id = person_id)
+    return render(request,'live.html',{'person':person})
+def base(request):
+    return render(request,'index.html')
 

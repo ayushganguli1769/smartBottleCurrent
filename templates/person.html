@@ -31,24 +31,17 @@
     <div class="w3-top">
       <div class="w3-bar w3-red w3-card w3-left-align w3-large">
         <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
-        {% if user.is_authenticated %}
-        <a href="/college_predictor/" class="w3-bar-item w3-button w3-padding-large w3-white">Home</a>
+        <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+        <a href="/" class="w3-bar-item w3-button w3-padding-large w3-white">Home</a>
         <a href="/admin/" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Admin</a>
-        <a href="/college_predictor/logout/" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white glyphicon glyphicon-off"> Logout</a>
-        <a href="/" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Main Page</a>
-        {% else %}
-        <a href="/college_predictor/login/" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Login</a>
-        <a href="/college_predictor/register/" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Register</a>
-        <a href="/" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Main Page</a>
-        {% endif %}
+         <a href="/iot/home/" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Main Page</a>
     
       </div>
       <!-- Navbar on small screens -->
       <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
-        <a href="#" class="w3-bar-item w3-button w3-padding-large">Start Predicting</a>
-        <a href="#" class="w3-bar-item w3-button w3-padding-large">Admin</a>
-        <a href="#" class="w3-bar-item w3-button w3-padding-large"></a>
-        <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 4</a>
+        <a href="/" class="w3-bar-item w3-button w3-padding-large">Home</a>
+        <a href="/admin/" class="w3-bar-item w3-button w3-padding-large">Admin</a>
+        <a href="/iot/home/" class="w3-bar-item w3-button w3-padding-large">Main Page</a>
       </div>
     </div>
     <br>
@@ -65,9 +58,9 @@
     <li class="nav-item">
       <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Add Prescription</a>
     </li>
-    <li class="nav-item">
+    <!--<li class="nav-item">
       <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Live Analysis</a>
-    </li>
+    </li>-->
   </ul>
   
   <div class="tab-content" id="myTabContent">
@@ -104,9 +97,12 @@
     </div>
     <!--new div. Be careful with div. Screwed it once already-->
     <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit possimus corrupti sunt dicta, minima quo. Officiis facere eos vitae nisi eius, hic at nemo cum quo dignissimos consequuntur, cupiditate dolorum.
+      
+      
     </div>
+    
   </div>
+
 </div>
 <footer id="footer">
       <p>Copyright Team Learning.Dev &copy; 2020</p>

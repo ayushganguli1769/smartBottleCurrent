@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block page_title %}
+  LIVE GRAPH
+{% endblock page_title %}
+{% block body %}
+
+{% if person.bottle.id == 1 %}  
+<iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/963032/charts/1?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=50&type=line&update=15">
+    {% else %}
+    <div class="alert alert-danger">
+        <h1><strong>No data exists!</strong> </h1>
+      </div>
+{% endif %}
+
+{% endblock body %}
